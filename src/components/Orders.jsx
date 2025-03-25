@@ -11,7 +11,6 @@ const OrderDashboard = () => {
     orderTotal: '',
     orderItems: ''
   });
-
   const orders = [
     { time: '8:00am', orderNumber: 'NPN124422', clientName: 'Anna Nishka', delivery: 'Eat in', orderTotal: 540, orderItems: 4, deliveryStatus: 'Pending' },
     { time: '6:32am', orderNumber: 'NPN124423', clientName: 'Nancy Wangari', delivery: 'Pick up', orderTotal: 540, orderItems: 4, deliveryStatus: 'Processing' },
@@ -20,7 +19,7 @@ const OrderDashboard = () => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case 'Completed': return 'bg-green-100 text-green-800';
+      case 'Completed': return 'bg-green-200 text-green-800';
       case 'Processing': return 'bg-yellow-100 text-yellow-800';
       case 'Pending': return 'bg-gray-100 text-gray-800';
       default: return 'bg-gray-100 text-gray-800';

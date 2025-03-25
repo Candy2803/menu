@@ -32,7 +32,7 @@ const SideBarMenu = ({ activeMenu, setActiveMenu }) => {
   };
 
   return (
-    <div className="w-78 h-screen bg-teal-500 text-white flex flex-col">
+    <div className="w-58 h-screen bg-teal-500 text-white flex flex-col">
       <div className="flex-1 overflow-y-auto">
         {menuItems.map((item) => (
           <div
