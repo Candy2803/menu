@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SidearMenu from './SideBarMenu';
+import SideBarMenu from './SideBarMenu';
 
 
 const Dashboard = () => {
@@ -72,7 +72,7 @@ const Dashboard = () => {
   return (
     <div className="flex w-full h-full overflow-x-hidden">
       {/* Sidebar */}
-      <SidebarMenu 
+      <SideBarMenu 
         activeMenu={activeMenu} 
         setActiveMenu={setActiveMenu} 
       />
