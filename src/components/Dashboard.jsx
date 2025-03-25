@@ -25,8 +25,7 @@ const Dashboard = () => {
   const [newOrder, setNewOrder] = useState({
     item: '',
     status: 'Pending',
-    quantity: '',
-    image: 'https://via.placeholder.com/50'
+    quantity: ''
   });
 
   const [orderChart] = useState([
