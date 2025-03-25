@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LayoutGrid } from 'lucide-react';
-import SidebarMenu from './SideBarMenu';
+import SideBarMenu from './SideBarMenu';
 
 const OrderDashboard = () => {
   const [activeMenu, setActiveMenu] = useState('Dashboard');
@@ -40,7 +40,7 @@ const OrderDashboard = () => {
 
   return (
     <div className="flex w-full h-full overflow-x-hidden">
-      <SidebarMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+      <SideBarMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       <div className="flex flex-col flex-1 p-6">
         <div className="flex items-center space-x-4 mb-6">
           <LayoutGrid className="text-gray-600" />
