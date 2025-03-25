@@ -19,7 +19,6 @@ const SideBarMenu = ({ activeMenu, setActiveMenu }) => {
     { path: '/settings', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0', name: 'Settings' }
   ];
 
-  // Sync active menu with the current route
   useEffect(() => {
     const currentMenuItem = menuItems.find(item => item.path === location.pathname);
     if (currentMenuItem) {
