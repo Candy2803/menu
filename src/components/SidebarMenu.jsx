@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const SidebarMenu = ({ activeMenu, setActiveMenu }) => {
+const SideBarMenu = ({ activeMenu, setActiveMenu }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -70,4 +70,4 @@ const SidebarMenu = ({ activeMenu, setActiveMenu }) => {
   );
 };
 
-export default SidebarMenu;
+export default SideBarMenu;

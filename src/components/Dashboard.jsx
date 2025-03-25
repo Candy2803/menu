@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SidebarMenu from './SideBarMenu';
+import SidearMenu from './SideBarMenu';
 
 
 const Dashboard = () => {
