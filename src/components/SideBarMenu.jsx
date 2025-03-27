@@ -6,7 +6,7 @@ const SideBarMenu = ({ activeMenu, setActiveMenu }) => {
   const location = useLocation();
 
   const menuItems = [
-    { path: '/ats-menu', icon: 'M4 6h16M4 12h12M4 18h8', name: 'ATS Menu' },
+    { path: '/', icon: 'M4 6h16M4 12h12M4 18h8', name: 'ATS Menu' },
     { path: '/', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3', name: 'Dashboard' },
     { path: '/orders', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10', name: 'Orders' },
     { path: '/tables', icon: 'M12 4v1m6 11h2', name: 'Tables' },
@@ -40,7 +40,9 @@ const SideBarMenu = ({ activeMenu, setActiveMenu }) => {
               flex items-center p-4 cursor-pointer transition-all duration-200
               ${
                 activeMenu === item.name
-                  ? 'bg-teal-700 text-white font-semibold'
+                  ? (item.name === 'ATS Menu' 
+                      ? 'bg-white text-teal-700 font-semibold' 
+                      : 'bg-teal-700 text-white font-semibold')
                   : 'hover:bg-teal-600'
               }
             `}
@@ -48,7 +50,7 @@ const SideBarMenu = ({ activeMenu, setActiveMenu }) => {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 mr-3"
+              className={`h-5 w-5 mr-3 ${activeMenu === item.name && item.name === 'ATS Menu' ? 'text-teal-700' : 'text-white'}`}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
