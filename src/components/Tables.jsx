@@ -13,6 +13,7 @@ const TablesPage = () => {
   const [isAddTableDialogOpen, setIsAddTableDialogOpen] = useState(false);
   const [newTableName, setNewTableName] = useState('');
   const [newTableCapacity, setNewTableCapacity] = useState('');
+  const [newTableStatus, setNewTableStatus] = useState('Free'); // Default status
   const [activeMenu, setActiveMenu] = useState('Dashboard');
 
   // Handler for adding a new table
@@ -30,7 +31,7 @@ const TablesPage = () => {
       id: tables.length + 1,
       name: newTableName,
       capacity: newTableCapacity,
-      status: 'Free'
+      status: newTableStatus
     };
 
     // Update tables state
@@ -44,15 +45,16 @@ const TablesPage = () => {
   const resetForm = () => {
     setNewTableName('');
     setNewTableCapacity('');
+    setNewTableStatus('Free');
     setIsAddTableDialogOpen(false);
   };
 
   // Render table status color
   const getTableStatusColor = (status) => {
     switch (status) {
-      case 'Occupied': return 'bg-red-100';
-      case 'Reserved': return 'bg-yellow-100';
-      case 'Free': return 'bg-green-100';
+      case 'Occupied': return 'bg-red-100 text-black';
+      case 'Reserved': return 'bg-yellow-100 text-black';
+      case 'Free': return 'bg-green-100 text-black';
       default: return '';
     }
   };
@@ -66,7 +68,7 @@ const TablesPage = () => {
       >
         <h2 className="text-lg font-semibold">{table.name}</h2>
         <p>Status: {table.status}</p>
-        {table.capacity && <p>Capacity: {table.capacity}</p>}
+        
       </div>
     ));
   };
@@ -101,6 +103,19 @@ const TablesPage = () => {
                 placeholder="Enter table capacity"
                 className="w-full px-3 py-2 border text-black rounded"
               />
+            </div>
+            <div>
+              <label htmlFor="tableStatus" className="block text-black mb-2">Table Status</label>
+              <select 
+                id="tableStatus"
+                value={newTableStatus}
+                onChange={(e) => setNewTableStatus(e.target.value)}
+                className="w-full px-3 py-2 border text-black rounded"
+              >
+                <option value="Free">Free</option>
+                <option value="Occupied">Occupied</option>
+                <option value="Reserved">Reserved</option>
+              </select>
             </div>
             <div className="flex justify-between">
               <button 

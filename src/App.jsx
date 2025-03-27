@@ -10,6 +10,8 @@ import Staff from './components/Staff';
 import Reports from './components/Reports';
 import Settings from './components/Settings';
 import MenuManagement from './components/Menu';
+import LoginPage from './components/Login';
+import SignupPage from './components/Signup';
 function App() {
 
   return (
@@ -26,7 +28,9 @@ function App() {
           <Route path="/staff" element={<Staff />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
         </Routes>
     </Router>
     </>
