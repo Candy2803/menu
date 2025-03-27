@@ -123,10 +123,12 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-4 gap-4 mb-4">
           {[
             { label: 'Total Revenue', value: `$${stats.revenue.toLocaleString()}`, color: 'blue' },
             { label: 'Total Orders', value: stats.orders, color: 'green' },
+            { label: 'Total Customers', value: stats.customers, color: 'purple' },
+            { label: 'Pending Orders', value: stats.pendingOrders, color: 'yellow' },
           ].map((stat, index) => (
             <div key={index} className="bg-white rounded-lg shadow p-4 text-center">
               <div className={`text-2xl font-bold text-${stat.color}-600`}>{stat.value}</div>
@@ -258,7 +260,7 @@ const Dashboard = () => {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed inset-0 flex text-black items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg w-96">
             <h2 className="text-lg font-bold mb-4">Create New Order</h2>
             <form onSubmit={handleSubmit}>

@@ -9,6 +9,7 @@ import Accounting from './components/Accounting';
 import Staff from './components/Staff';
 import Reports from './components/Reports';
 import Settings from './components/Settings';
+import MenuManagement from './components/Menu';
 function App() {
 
   return (
@@ -16,6 +17,7 @@ function App() {
       
       <Router>
         <Routes>
+          <Route path="/menu" element={<MenuManagement />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/tables" element={<Tables />} />
           <Route path="/delivery" element={<Delivery />} />

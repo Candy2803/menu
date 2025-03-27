@@ -87,7 +87,7 @@ const OrderDashboard = () => {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+        <div className="fixed inset-0 flex items-center text-black justify-center bg-gray-900 bg-opacity-50">
           <div className="bg-white p-6 rounded-lg w-96">
             <h2 className="text-lg font-semibold text-gray-800 mb-4">New Order</h2>
             <form onSubmit={handleSubmit}>

@@ -8,6 +8,7 @@ const SideBarMenu = ({ activeMenu, setActiveMenu }) => {
   const menuItems = [
     { path: '/', icon: 'M4 6h16M4 12h12M4 18h8', name: 'ATS Menu' },
     { path: '/', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3', name: 'Dashboard' },
+    { path: '/menu', icon: 'M12 6v6m0 0v6m0-6h6m-6 0H6', name: 'Menu'},
     { path: '/orders', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10', name: 'Orders' },
     { path: '/tables', icon: 'M12 4v1m6 11h2', name: 'Tables' },
     { path: '/delivery', icon: 'M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12', name: 'Delivery' },

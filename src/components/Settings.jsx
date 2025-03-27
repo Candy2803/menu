@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { Edit, Trash2, PlusCircle } from 'lucide-react';
 import SideBarMenu from './SideBarMenu';
+import { 
+  EditProfileForm, 
+  AddTeamMemberForm, 
+  ChangePasswordForm 
+} from './UserManage';
 
 const Settings = () => {
   const [activeMenu, setActiveMenu] = useState("Settings")
@@ -16,27 +21,16 @@ const Settings = () => {
     { id: 3, name: 'Sally Whitman', role: 'Member' }
   ]);
 
-  const handleEditPersonalInfo = () => {
-    // Logic for editing personal information
-    console.log('Edit personal information');
-  };
-
-  const handleChangePassword = () => {
-    // Logic for changing password
-    console.log('Change password');
-  };
+  const [showEditProfileModal, setShowEditProfileModal] = useState(false);
+  const [showAddMemberModal, setShowAddMemberModal] = useState(false);
+  const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
 
   const handleRemoveMember = (id) => {
     setTeamMembers(teamMembers.filter(member => member.id !== id));
   };
 
-  const handleAddMember = () => {
-    // Logic for adding a new team member
-    console.log('Add team member');
-  };
-
   return (
-    <div className="flex w-full h-screen">
+    <div className="flex  w-full h-screen">
       <SideBarMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       
       <div className="flex-1 p-8 bg-gray-50 overflow-y-auto">
@@ -48,16 +42,19 @@ const Settings = () => {
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-semibold">Personal Information</h2>
               <button 
-                onClick={handleEditPersonalInfo}
+                onClick={() => setShowEditProfileModal(true)}
                 className="text-blue-600 hover:bg-blue-50 p-2 rounded flex items-center"
               >
                 <Edit className="mr-2 h-5 w-5" /> Edit
               </button>
             </div>
-            <div className="space-y-2">
-              <p><strong>Name:</strong> {personalInfo.name}</p>
-              <p><strong>Phone:</strong> {personalInfo.phone}</p>
-              <p><strong>Email:</strong> {personalInfo.email}</p>
+            <div className="flex items-center space-x-30 mb-4">
+              <img src='placeholder.jpg' alt='profile'></img>
+              <div className="space-y-2">
+                <p><strong>Name:</strong> {personalInfo.name}</p>
+                <p><strong>Phone:</strong> {personalInfo.phone}</p>
+                <p><strong>Email:</strong> {personalInfo.email}</p>
+              </div>
             </div>
           </div>
 
@@ -66,7 +63,7 @@ const Settings = () => {
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-semibold">Account Security</h2>
               <button 
-                onClick={handleChangePassword}
+                onClick={() => setShowChangePasswordModal(true)}
                 className="text-blue-600 hover:bg-blue-50 p-2 rounded"
               >
                 Change password
@@ -79,7 +76,7 @@ const Settings = () => {
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-semibold">Team Members</h2>
               <button 
-                onClick={handleAddMember}
+                onClick={() => setShowAddMemberModal(true)}
                 className="text-blue-600 hover:bg-blue-50 p-2 rounded flex items-center"
               >
                 <PlusCircle className="mr-2 h-5 w-5" /> Add team member
@@ -106,6 +103,49 @@ const Settings = () => {
             </div>
           </div>
         </div>
+
+        {/* Modals */}
+        {showEditProfileModal && (
+          <div className="fixed inset-0 text-black bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg p-6">
+              <EditProfileForm />
+              <button 
+                onClick={() => setShowEditProfileModal(false)}
+                className="mt-4 w-full bg-red-500 text-white py-2 rounded-md"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+
+        {showAddMemberModal && (
+          <div className="fixed inset-0 text-black bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg p-6">
+              <AddTeamMemberForm />
+              <button 
+                onClick={() => setShowAddMemberModal(false)}
+                className="mt-4 w-full bg-red-500 text-white py-2 rounded-md"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+
+        {showChangePasswordModal && (
+          <div className="fixed inset-0 text-black bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg p-6">
+              <ChangePasswordForm />
+              <button 
+                onClick={() => setShowChangePasswordModal(false)}
+                className="mt-4 w-full bg-red-500 text-white py-2 rounded-md"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

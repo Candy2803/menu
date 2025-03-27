@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Users, Clock, Table, ShoppingCart } from 'lucide-react';
 import SideBarMenu from './SideBarMenu';
+import { AddTeamMemberForm } from './UserManage';
 
 const staffData = [
   {
@@ -47,6 +48,12 @@ const staffData = [
 
 const StaffManagement = () => {
   const [activeMenu, setActiveMenu] = React.useState('Staff');
+  const [showAddMemberModal, setShowAddMemberModal] = useState(false);
+
+  const handleAddMember = () => {
+    setShowAddMemberModal(true);
+  };
+
   return (
     <div className="flex w-full h-full overflow-x-hidden">
       <SideBarMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
@@ -56,7 +63,10 @@ const StaffManagement = () => {
             <Users className="text-gray-600" />
             <h2 className="text-3xl font-semibold text-black">Staff</h2>
           </div>
-          <button className="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition">
+          <button 
+            onClick={handleAddMember}
+            className="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition"
+          >
             + Add team member
           </button>
         </div>
@@ -64,7 +74,7 @@ const StaffManagement = () => {
           <div className="flex justify-between mb-4">
             <div className="text-gray-600">Total: 4</div>
             <div className="flex space-x-2">
-              <button className="text-white hover:bg-gray-100 px-2 py-1 rounded">
+              <button className="text-black border-b-blue-500 hover:bg-gray-100 px-2 py-1 rounded">
                 Download report
               </button>
               <input 
@@ -120,6 +130,21 @@ const StaffManagement = () => {
           </table>
         </div>
       </div>
+
+      {/* Add Member Modal */}
+      {showAddMemberModal && (
+        <div className="fixed inset-0 text-black bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 relative">
+            <button 
+              onClick={() => setShowAddMemberModal(false)}
+              className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+            >
+              ✕
+            </button>
+            <AddTeamMemberForm />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

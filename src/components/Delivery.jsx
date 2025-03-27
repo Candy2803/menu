@@ -151,7 +151,7 @@ export default function DeliveryDashboard() {
                   </svg>
                   <span className="text-sm">04/03/2023</span>
                 </div>
-                <button className="flex items-center gap-2 px-3 py-1.5 border rounded-md bg-white hover:bg-gray-50 text-sm">
+                <button className="flex items-center text-black gap-2 px-3 py-1.5 border rounded-md bg-white hover:bg-gray-50 text-sm">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -215,7 +215,7 @@ export default function DeliveryDashboard() {
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b bg-gray-50 text-xs text-gray-500">
+                      <tr className="border-b bg-gray-50 text-xs text-black">
                         <th className="py-3 px-4 text-left font-medium">Order number</th>
                         <th className="py-3 px-4 text-left font-medium">Customer</th>
                         <th className="py-3 px-4 text-left font-medium">Ordered at</th>
@@ -231,16 +231,16 @@ export default function DeliveryDashboard() {
                     <tbody>
                       {deliveryData.map((order, index) => (
                         <tr key={index} className="border-b hover:bg-gray-50">
-                          <td className="py-3 px-4 text-sm">{order.orderNumber}</td>
+                          <td className="py-3 px-4 text-black text-sm">{order.orderNumber}</td>
                           <td className="py-3 px-4 text-sm text-blue-600">{order.customer}</td>
-                          <td className="py-3 px-4 text-sm">{order.orderedAt}</td>
-                          <td className="py-3 px-4 text-sm">{order.orderItems}</td>
-                          <td className="py-3 px-4 text-sm">{order.itemDelivery}</td>
+                          <td className="py-3 px-4 text-black text-sm">{order.orderedAt}</td>
+                          <td className="py-3 px-4 text-black text-sm">{order.orderItems}</td>
+                          <td className="py-3 px-4 text-black text-sm">{order.itemDelivery}</td>
                           <td className="py-3 px-4 text-sm text-gray-500 max-w-xs truncate">
                             {order.deliveryLocation}
                           </td>
-                          <td className="py-3 px-4 text-sm">{order.orderTotal}</td>
-                          <td className="py-3 px-4 text-sm">{order.deliveryGuy}</td>
+                          <td className="py-3 px-4 text-black text-sm">{order.orderTotal}</td>
+                          <td className="py-3 px-4 text-black text-sm">{order.deliveryGuy}</td>
                           <td className="py-3 px-4">
                             <span className="px-2 py-1 bg-amber-100 text-amber-800 rounded text-xs">
                               {order.deliveryStatus}
