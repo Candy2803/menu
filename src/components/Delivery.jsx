@@ -91,7 +91,7 @@ export default function DeliveryDashboard() {
             <input
               type="text"
               placeholder="Search..."
-              className="pl-8 pr-4 py-2 w-full rounded-md border border-gray-200 bg-gray-50 text-sm"
+              className="pl-8 pr-4 py-2 w-full placeholder-black text-black rounded-md border border-gray-200 bg-gray-50 text-sm"
             />
           </div>
           <div className="flex items-center gap-2">
@@ -128,7 +128,7 @@ export default function DeliveryDashboard() {
           <div className="bg-white rounded-md shadow-sm">
             <div className="p-4 flex justify-between items-center border-b">
               <div className="flex items-center gap-2">
-                <h2 className="font-medium">Delivery logs</h2>
+                <h2 className="font-medium text-black">Delivery logs</h2>
               </div>
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-2 border rounded-md px-3 py-1.5">
