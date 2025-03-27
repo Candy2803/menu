@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SideBarMenu from './SideBarMenu';
+import NotificationsModal from './Notifications';
 
 
 const Dashboard = () => {
@@ -13,6 +14,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const [activeMenu, setActiveMenu] = useState('Dashboard');
+  const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false);
 
   
 
@@ -70,6 +72,25 @@ const Dashboard = () => {
     });
   };
 
+  const notifications = [
+    { 
+      type: 'Order', 
+      message: 'You have 1 new order from an online customer',
+      icon: '🍽️'
+    },
+    { 
+      type: 'Reservation', 
+      message: 'Andre has reserved table 2 for 8:00 am 12/2/2025. (2 guests)',
+      icon: '📋'
+    },
+    { 
+      type: 'Order', 
+      message: 'You have 1 new order from an online customer',
+      icon: '🍽️'
+    }
+  ];
+
+
   return (
     <div className="flex w-full h-full overflow-x-hidden">
       {/* Sidebar */}
@@ -78,6 +99,19 @@ const Dashboard = () => {
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl font-bold text-gray-500">Welcome Andre Carvalli</h1>
           <div className="flex items-center">
+          <button 
+              onClick={() => setIsNotificationModalOpen(true)}
+              className="mr-4 relative bg-white rounded-full"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.58V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.579c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+              {notifications.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full h-4 w-4 flex items-center justify-center text-xs">
+                  {notifications.length}
+                </span>
+              )}
+            </button>
             <div className="mr-4 text-sm text-gray-500">Andre Carvalli</div>
             <div className="w-10 h-10 bg-gray-300 rounded-full">
               <img
@@ -275,6 +309,11 @@ const Dashboard = () => {
           </div>
         </div>
       )}
+      <NotificationsModal 
+        isOpen={isNotificationModalOpen}
+        onClose={() => setIsNotificationModalOpen(false)}
+        notifications={notifications}
+      />
     </div>
   );
 };
