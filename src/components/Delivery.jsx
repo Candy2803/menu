@@ -1,9 +1,21 @@
+"use client"
+
 import { useState } from "react"
 import SideBarMenu from "./SideBarMenu"
 
 export default function DeliveryDashboard() {
   const [activeMenu, setActiveMenu] = useState("Delivery")
   const [activeTab, setActiveTab] = useState("pending")
+
+  const handleDeleteOrder = (orderId) => {
+    // In a real app, you would call an API to delete the order
+    alert(`Order ${orderId} would be deleted`)
+  }
+
+  const handleApproveOrder = (orderId) => {
+    // In a real app, you would call an API to approve the order
+    alert(`Order ${orderId} would be approved`)
+  }
 
   const deliveryData = [
     {
@@ -235,23 +247,68 @@ export default function DeliveryDashboard() {
                             </span>
                           </td>
                           <td className="py-3 px-4">
-                            <button className="h-8 w-8 rounded-md hover:bg-gray-100 flex items-center justify-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
+                            <div className="flex items-center gap-1">
+                              <button
+                                onClick={() => handleDeleteOrder(order.orderNumber)}
+                                className="px-2 py-1 bg-red-100 text-red-600 rounded text-xs hover:bg-red-200 transition-colors"
+                                title="Delete"
                               >
-                                <circle cx="12" cy="12" r="1"></circle>
-                                <circle cx="12" cy="5" r="1"></circle>
-                                <circle cx="12" cy="19" r="1"></circle>
-                              </svg>
-                            </button>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="14"
+                                  height="14"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                >
+                                  <path d="M3 6h18"></path>
+                                  <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6"></path>
+                                  <path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"></path>
+                                </svg>
+                              </button>
+                              <button
+                                onClick={() => handleApproveOrder(order.orderNumber)}
+                                className="px-2 py-1 bg-green-100 text-green-600 rounded text-xs hover:bg-green-200 transition-colors"
+                                title="Approve"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="14"
+                                  height="14"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                >
+                                  <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                              </button>
+                              <button
+                                className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs hover:bg-gray-200 transition-colors"
+                                title="More Options"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="14"
+                                  height="14"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                >
+                                  <circle cx="12" cy="12" r="1"></circle>
+                                  <circle cx="12" cy="5" r="1"></circle>
+                                  <circle cx="12" cy="19" r="1"></circle>
+                                </svg>
+                              </button>
+                            </div>
                           </td>
                         </tr>
                       ))}

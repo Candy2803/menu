@@ -50,7 +50,7 @@ const OrderDashboard = () => {
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-semibold text-gray-800">Live orders</h2>
             <button 
-              className="px-4 py-2 bg-blue-600 text-black rounded-lg"
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg"
               onClick={() => setIsModalOpen(true)}
             >
               New Order

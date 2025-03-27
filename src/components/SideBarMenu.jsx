@@ -13,7 +13,6 @@ const SideBarMenu = ({ activeMenu, setActiveMenu }) => {
     { path: '/delivery', icon: 'M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12', name: 'Delivery' },
     { path: '/reservations', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14', name: 'Reservations' },
     { path: '/accounting', icon: 'M9 14l6-6 6 6', name: 'Accounting' },
-    { path: '/customers', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857', name: 'Customers' },
     { path: '/staff', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0', name: 'Staff' },
     { path: '/reports', icon: 'M9 12l2 2 4-4', name: 'Reports' },
     { path: '/settings', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0', name: 'Settings' }
