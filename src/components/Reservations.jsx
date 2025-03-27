@@ -50,7 +50,6 @@ const Reservations = () => {
     <div className="flex w-full h-full overflow-x-hidden">
       <SideBarMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       <div className="bg-white ml-38 rounded-lg">
-        {/* Header */}
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-4xl font-bold -ml-34 text-gray-800">Reservations</h2>
           <div className="flex items-center space-x-4">
@@ -58,11 +57,11 @@ const Reservations = () => {
               <input 
                 type="text" 
                 placeholder="Search" 
-                className="pl-8 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="pl-8 pr-4 py-2 text-black border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <Search className="absolute left-2 top-3 text-gray-400" size={18} />
             </div>
-            <div className="flex items-center space-x-2 bg-blue-50 px-3 py-2 rounded-md cursor-pointer">
+            <div className="flex items-center space-x-2 text-black bg-blue-50 px-3 py-2 rounded-md cursor-pointer">
               <span>12/12/2025</span>
               <ChevronDown size={16} className="text-gray-600" />
             </div>
@@ -73,7 +72,6 @@ const Reservations = () => {
           </div>
         </div>
 
-        {/* Table */}
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-gray-100 border-b">

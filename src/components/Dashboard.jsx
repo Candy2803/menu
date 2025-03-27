@@ -89,12 +89,10 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-4 mb-4">
+        <div className="grid grid-cols-2 gap-4 mb-4">
           {[
             { label: 'Total Revenue', value: `$${stats.revenue.toLocaleString()}`, color: 'blue' },
             { label: 'Total Orders', value: stats.orders, color: 'green' },
-            { label: 'Total Customers', value: stats.customers, color: 'purple' },
-            { label: 'Pending Orders', value: stats.pendingOrders, color: 'yellow' }
           ].map((stat, index) => (
             <div key={index} className="bg-white rounded-lg shadow p-4 text-center">
               <div className={`text-2xl font-bold text-${stat.color}-600`}>{stat.value}</div>
