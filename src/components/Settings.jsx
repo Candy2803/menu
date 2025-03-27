@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Edit, Trash2, PlusCircle } from 'lucide-react';
+import { Edit, Trash2, PlusCircle, LogOut} from 'lucide-react';
 import SideBarMenu from './SideBarMenu';
 import { 
   EditProfileForm, 
   AddTeamMemberForm, 
   ChangePasswordForm 
 } from './UserManage';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Settings = () => {
+  const navigate = useNavigate()
   const [activeMenu, setActiveMenu] = useState("Settings")
   const [personalInfo, setPersonalInfo] = useState({
     name: 'Andre Garvali',
@@ -15,6 +17,10 @@ const Settings = () => {
     email: 'andrelatgarvali@gmail.com'
   });
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate("/");
+  };
   const [teamMembers, setTeamMembers] = useState([
     { id: 1, name: 'Andre Garvali', role: 'Admin' },
     { id: 2, name: 'James Knowles', role: 'Member' },
@@ -47,6 +53,12 @@ const Settings = () => {
               >
                 <Edit className="mr-2 h-5 w-5" /> Edit
               </button>
+              <button 
+                  onClick={handleLogout}
+                  className="text-red-600 hover:bg-red-50 p-2 rounded flex items-center"
+                >
+                  <LogOut className="mr-2 h-5 w-5" /> Logout
+                </button>
             </div>
             <div className="flex items-center space-x-30 mb-4">
               <img 
